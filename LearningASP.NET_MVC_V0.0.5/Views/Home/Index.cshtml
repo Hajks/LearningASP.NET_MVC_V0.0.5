@@ -1,0 +1,51 @@
+﻿
+@model List<LearningASP.NET_MVC_V0._0._5.Models.Course> 
+
+@*Bascily if we want to switch between html and c# we use "@" to code in c# and any html code like <text> to switch to html again*@
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+<div>
+    @*Model.Message*@
+    
+    <ul>
+        @foreach (var item in Model)
+        {
+            <li>
+                <img src ="@item.ImageUrl" /><br />
+                @item.Name - @item.Description
+            </li>
+        }
+    </ul>
+    
+    @if (Model.Count() == 0)
+    {
+        <span>
+            Brak kursów!
+        </span>
+    }
+    else
+    {
+        var i = 12;
+        <span>
+            @i
+        </span>
+    }
+    
+    <span @if (Model.Count != 0) { <text> style="display: none"</text> } >Chwilowy brak kursów</span>
+          
+
+    @*@Session["AppVersion"]
+    @Model.Message*@
+
+
+</div>
+</body>
+</html>
